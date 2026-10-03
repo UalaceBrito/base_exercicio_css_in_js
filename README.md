@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+# EBAC Jobs — Styled Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Exercício de conversão da estilização do projeto para **Styled Components**. Cabeçalho, hero, formulário de pesquisa, cartões de vaga, lista de vagas e estilos globais são implementados em componentes estilizados tipados com TypeScript.
 
-## Available Scripts
+## Executar localmente
 
-In the project directory, you can run:
+```bash
+npm install
+npm start
+```
 
-### `npm start`
+Para validar a compilação de produção:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+npm run build
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Componentes estilizados
 
-### `npm test`
+- `Cabecalho`: identidade do portal.
+- `Hero`: seção de apresentação responsiva.
+- `FormVagas`: formulário acessível de pesquisa.
+- `Vaga`: cartão individual com informações e faixa salarial em reais.
+- `ListaVagas`: grade responsiva, filtro e mensagem para busca sem resultados.
+- `src/styles.ts`: tema, reset global e container da página via Styled Components.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Meu GitHub
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=UalaceBrito&show_icons=true&theme=dracula&include_all_commits=true&count_private=true" alt="Estatísticas do GitHub de UalaceBrito" />
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=UalaceBrito&layout=compact&langs_count=7&theme=dracula" alt="Linguagens mais utilizadas por UalaceBrito" />

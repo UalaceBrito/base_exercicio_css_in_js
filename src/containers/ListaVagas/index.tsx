@@ -1,12 +1,37 @@
 import { useState } from 'react'
+import styled from 'styled-components'
 import FormVagas from '../../components/FormVagas'
-
 import Vaga from '../../components/Vaga'
+import { theme } from '../../styles'
 
-import styles from './ListaVagas.module.css'
+const JobList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  list-style: none;
 
-type Vaga = {
-  id: string
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+`
+
+const EmptyState = styled.p`
+  margin-top: 24px;
+  padding: 24px;
+  color: ${theme.colors.muted};
+  text-align: center;
+  background: ${theme.colors.secondary};
+  border: 1px solid ${theme.colors.border};
+  border-radius: 10px;
+`
+
+type Job = {
+  id: number
   titulo: string
   localizacao: string
   nivel: string
@@ -16,7 +41,7 @@ type Vaga = {
   requisitos: string[]
 }
 
-const vagas = [
+const vagas: Job[] = [
   {
     id: 1,
     titulo: 'Desenvolvedor front-end',
@@ -90,30 +115,33 @@ const vagas = [
 ]
 
 const ListaVagas = () => {
-  const [filtro, setFiltro] = useState<string>('')
-
-  const vagasFiltradas = vagas.filter(
-    (x) => x.titulo.toLocaleLowerCase().search(filtro) >= 0
+  const [filtro, setFiltro] = useState('')
+  const vagasFiltradas = vagas.filter((vaga) =>
+    vaga.titulo.toLocaleLowerCase('pt-BR').includes(filtro)
   )
 
   return (
-    <div>
-      <FormVagas aoPesquisar={(termo: string) => setFiltro(termo)} />
-      <ul className={styles.vagas}>
-        {vagasFiltradas.map((vag) => (
-          <Vaga
-            key={vag.id}
-            titulo={vag.titulo}
-            localizacao={vag.localizacao}
-            nivel={vag.nivel}
-            modalidade={vag.modalidade}
-            salarioMin={vag.salarioMin}
-            salarioMax={vag.salarioMax}
-            requisitos={vag.requisitos}
-          />
-        ))}
-      </ul>
-    </div>
+    <section aria-label="Vagas disponíveis">
+      <FormVagas aoPesquisar={setFiltro} />
+      {vagasFiltradas.length > 0 ? (
+        <JobList aria-live="polite">
+          {vagasFiltradas.map((vaga) => (
+            <Vaga
+              key={vaga.id}
+              titulo={vaga.titulo}
+              localizacao={vaga.localizacao}
+              nivel={vaga.nivel}
+              modalidade={vaga.modalidade}
+              salarioMin={vaga.salarioMin}
+              salarioMax={vaga.salarioMax}
+              requisitos={vaga.requisitos}
+            />
+          ))}
+        </JobList>
+      ) : (
+        <EmptyState role="status">Nenhuma vaga encontrada para essa busca.</EmptyState>
+      )}
+    </section>
   )
 }
 
