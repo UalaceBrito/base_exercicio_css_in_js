@@ -91,13 +91,22 @@ const Vaga = ({
   <JobCard>
     <JobTitle>{titulo}</JobTitle>
     <JobDetails>
-      <JobDetail><strong>Localização:</strong> {localizacao}</JobDetail>
-      <JobDetail><strong>Senioridade:</strong> {nivel}</JobDetail>
-      <JobDetail><strong>Contratação:</strong> {modalidade}</JobDetail>
       <JobDetail>
-        <strong>Salário:</strong> {currency.format(salarioMin)} - {currency.format(salarioMax)}
+        <strong>Localização:</strong> {localizacao}
       </JobDetail>
-      <JobDetail><strong>Requisitos:</strong> {requisitos.join(', ')}</JobDetail>
+      <JobDetail>
+        <strong>Senioridade:</strong> {nivel}
+      </JobDetail>
+      <JobDetail>
+        <strong>Contratação:</strong> {modalidade}
+      </JobDetail>
+      <JobDetail>
+        <strong>Salário:</strong> {currency.format(salarioMin)} -{' '}
+        {currency.format(salarioMax)}
+      </JobDetail>
+      <JobDetail>
+        <strong>Requisitos:</strong> {requisitos.join(', ')}
+      </JobDetail>
     </JobDetails>
     <ApplyLink href="#">Ver detalhes e candidatar-se</ApplyLink>
   </JobCard>

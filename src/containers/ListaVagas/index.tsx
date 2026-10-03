@@ -139,7 +139,9 @@ const ListaVagas = () => {
           ))}
         </JobList>
       ) : (
-        <EmptyState role="status">Nenhuma vaga encontrada para essa busca.</EmptyState>
+        <EmptyState role="status">
+          Nenhuma vaga encontrada para essa busca.
+        </EmptyState>
       )}
     </section>
   )
